@@ -3,6 +3,8 @@ import { gnb_data } from "../data/gnb_data.js";
 export const GNB = () => {
   const gnb = document.querySelector(".depth1");
 
+  if (!gnb) return;
+
   const depth2 = (array) => {
     return array
       .map((item2) => {
@@ -41,6 +43,8 @@ export const GNB = () => {
 
   const GnbEvent = () => {
     const depth1s = document.querySelectorAll(".depth1> li");
+
+    if (!depth1s) return;
 
     depth1s.forEach((depth1) => {
       depth1.addEventListener("mouseenter", (e) => {

@@ -5,7 +5,8 @@ export const Footer = () => {
     const siteEvent = () => {
       const siteBtn = document.querySelector(".site-btn");
       const siteList = document.querySelector(".site-list");
-      const btnIcon = document.querySelector(".site-btn::after");
+
+      if (!siteBtn && !siteList) return;
 
       siteBtn.addEventListener("click", (e) => {
         e.currentTarget.classList.toggle("on");
