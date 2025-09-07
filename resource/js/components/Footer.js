@@ -1,7 +1,7 @@
 import { IncludeHTML } from "./IncludeHTML.js";
 
 export const Footer = () => {
-  IncludeHTML("../../component/footer.html", ".footer").then(() => {
+  IncludeHTML("./component/footer.html", ".footer").then(() => {
     const siteEvent = () => {
       const siteBtn = document.querySelector(".site-btn");
       const siteList = document.querySelector(".site-list");
