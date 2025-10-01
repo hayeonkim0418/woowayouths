@@ -10,7 +10,7 @@ export const Video = () => {
       .map((item) => {
         return `
             <li>
-            <a class="video-box" href="#">
+            <a class="video-box" href="#" title="${item.title}">
               <video src="${item.videoUrl}" loop="" muted="" playsinline="" poster="${item.videoImg}" autoplay=""></video>
             </a>
             <a class="video-txt" href="#">

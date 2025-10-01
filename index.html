@@ -16,18 +16,20 @@
   <body>
     <header class="header"><!-- include --></header>
     <main class="main">
-      <div class="main-visual">
-        <div class="swiper">
+      <div class="main-visual" role="region" aria-label="메인 비주얼 슬라이드쇼">
+        <div class="swiper" aria-live="polite">
           <div class="swiper-wrapper"><!-- 데이터 바인딩--></div>
           <div class="swiper-pagination"></div>
         </div>
     </main>
     <section class="sec01">
+      <h2 class="a11y-hidden">우아한 청년들 스토리</h2>
       <div class="inner">
         <ul class="card-list"><!-- 데이터 바인딩--></ul>
       </div>
     </section>
     <section class="sec02 peoples">
+      <h2 class="a11y-hidden">우아한 청년들 사진</h2>
       <div class="inner">
         <img class="img1" src="./resource/images/people_01.png">
         <img class="img2" src="./resource/images/people_02.png">
@@ -41,6 +43,7 @@
       </div>
     </section>
     <section class="sec03 video">
+      <h2 class="a11y-hidden">우아한청년들의 활동</h2>
       <div class="inner">
         <ul class="video-list"><!-- 데이터 바인딩--></ul>
       </div>

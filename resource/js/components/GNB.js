@@ -9,8 +9,8 @@ export const GNB = () => {
     return array
       .map((item2) => {
         return `
-            <li>
-                <a href="${item2.depth2Link}">${item2.depth2Title}</a>
+            <li role="none">
+                <a role="menuitem" href="${item2.depth2Link}">${item2.depth2Title}</a>
             </li>
         `;
       })
@@ -21,13 +21,13 @@ export const GNB = () => {
     gnb.innerHTML = gnb_data
       .map((item) => {
         return `
-            <li>
+            <li role="none">
                 <a href="${item.depth1Link}">${item.depth1Title}</a>
-                <div class="depth2">
+                <div class="depth2" role="menu">
                     ${
                       item.depth2
                         ? `
-                        <ul>
+                        <ul role="none">
                             ${depth2(item.depth2)}
                         </ul>
                         `
@@ -47,11 +47,23 @@ export const GNB = () => {
     if (!depth1s) return;
 
     depth1s.forEach((depth1) => {
-      depth1.addEventListener("mouseenter", (e) => {
-        e.currentTarget.classList.add("active");
-      });
-      depth1.addEventListener("mouseleave", (e) => {
-        e.currentTarget.classList.remove("active");
+      const depth1Link = depth1.querySelector("li");
+      const subLink = depth1.querySelector(".depth2");
+
+      const openMenu = () => {
+        depth1.classList.add("active");
+      };
+      const closeMenu = () => {
+        depth1.classList.remove("active");
+      };
+
+      depth1.addEventListener("mouseenter", openMenu);
+      depth1.addEventListener("mouseleave", closeMenu);
+      depth1.addEventListener("focusin", openMenu);
+      subLink.addEventListener("focusout", (e) => {
+        if (!subLink.contains(e.relatedTarget)) {
+          closeMenu();
+        }
       });
     });
   };
